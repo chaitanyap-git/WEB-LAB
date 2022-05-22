@@ -8,21 +8,36 @@
 </head>
 <body>
     <script>
-        // JavaScript to illustrate sort() function
-        function func() {
-        
-            
-            var arr = [4,2,8,6,1,0]
-            document.write(arr);
-            document.write("<br>");
-        
-            //Sorting the array
-            document.write(arr.sort());
-            document.write("<br>");
-           // document.write(arr);
-        }
-        func();
+        // using array methods
+
+        const arr1=[4,6,7,8,2,1,-2];
+        arr1.sort();
+        document.write(arr1);
+
+
+
+        //without using array methods
+
+        function bubbleSort(arr1) {
+  var flag = false;
+  while (!flag) {
+    flag = true;
+    for (var i = 1; i < arr1.length; i++) {
+      if (arr1[i - 1] > arr1[i]) {
+        flag = false;
+        var tmp = arr1[i - 1];
+        arr1[i - 1] = arr1[i];
+        arr1[i] = tmp;
+      }
+    }
+  }
+
+  return arr1;
+}
+
+var numbers = [4,6,7,8,2,1,-2];
+bubbleSort(numbers);
+document.write(numbers);
         </script>
-        
 </body>
 </html>

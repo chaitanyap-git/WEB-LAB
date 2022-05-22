@@ -9,41 +9,26 @@
 <body>
     <script>
 
-        function maxFreq(arr, n) {
-            //using moore's voting algorithm
-            var res = 0;
-            var count = 1;
-            for (var i = 1; i < n; i++) {
-            if (arr[i] === arr[res]) {
-                count++;
-            } else {
-                count--;
-            }
-    
-            if (count === 0) {
-                res = i;
-                count = 1;
-            }
-            }
-    
-            return arr[res];
+        // without using array methods
+        var arr1=[1,'a','a',2,3,'a',3,'a',2,4,9,'a'];
+var l = 1;
+var m = 0;
+var char;
+for (var i=0; i<arr1.length; i++)
+{
+        for (var j=i; j<arr1.length; j++)
+        {
+                if (arr1[i] == arr1[j])
+                 m++;
+                if (l<m)
+                {
+                  l=m; 
+                  char = arr1[i];
+                }
         }
-    
-        var arr = [1,'a','a',2,3,'a',3,'a',2,4,9,'a'];
-        var n = arr.length;
-        var freq = maxFreq(arr, n);
-        var count = 0;
-        for (var i = 0; i < n; i++) {
-            if (arr[i] === freq) {
-            count++;
-            }
-        }
-        document.write(
-            "Element " + maxFreq(arr, n) + " occurs " +
-            count + " times" + "<br>"
-        );
-        
-    </script>
-    
+        m=0;
+}
+document.write(char+" ( " +l +" times ) ") ;
+        </script>
 </body>
 </html>
